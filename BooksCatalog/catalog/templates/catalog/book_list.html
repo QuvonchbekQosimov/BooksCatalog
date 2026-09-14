@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Kitoblar ro'yxati</title>
+</head>
+<body>
+    <h1>Barcha kitoblar</h1>
+
+    {% if books %}
+        <ul>
+            {% for book in books %}
+                <li>
+                    <strong>{{ book.title }}</strong> — {{ book.author }} 
+                    (Janr: {{ book.category.name|default:"Ko'rsatilmagan" }})
+                    | Sana: {{ book.publication_date }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Hozircha hech qanday kitob qo'shilmagan.</p>
+    {% endif %}
+</body>
+</html>
