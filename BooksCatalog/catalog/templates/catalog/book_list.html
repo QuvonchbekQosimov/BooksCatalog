@@ -11,14 +11,16 @@
         <ul>
             {% for book in books %}
                 <li>
-                    <strong>{{ book.title }}</strong> — {{ book.author }} 
+                    <a href="{% url 'book_detail' book_id=book.pk %}">
+                        <strong>{{ book.title }}</strong>
+                    </a> 
+                    — {{ book.author }} 
                     (Janr: {{ book.category.name|default:"Ko'rsatilmagan" }})
-                    | Sana: {{ book.publication_date }}
                 </li>
             {% endfor %}
         </ul>
     {% else %}
-        <p>Hozircha hech qanday kitob qo'shilmagan.</p>
+        <p>Hozircha kitoblar yo'q.</p>
     {% endif %}
 </body>
 </html>
